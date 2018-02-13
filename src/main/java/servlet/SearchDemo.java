@@ -101,8 +101,8 @@ public class SearchDemo extends HttpServlet {
             request.getSession().setAttribute("role", user.getRole());
             request.getSession().setAttribute("secret", user.getSecret());
             response.sendRedirect("SearchDemo");
-        } catch (IOException ex) {
-            response.sendRedirect("Login?err=" + "Wrong user name or password - please try again");
+        } catch (Exception ex) {
+            response.sendRedirect("SearchDemo?err=" + "Wrong user name or password - please try again");
             Logger.getLogger(StoredXssDemo.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             em.close();

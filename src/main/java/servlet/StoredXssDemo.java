@@ -43,7 +43,7 @@ public class StoredXssDemo extends HttpServlet {
             out.print("<p style='color:red'>" + err + "</p>");
         }
         out.println("<fieldset><legend>Please login to use our cool site</legend>");
-        out.println("<form action='Login' method='POST'>");
+        out.println("<form action='StoredXssDemo' method='POST'>");
         out.println("<input name='user' placeholder='User name'/></br>");
         out.println("<input name='password' placeholder='Password'/></br>");
         out.println("<br/><input type='submit' />");
@@ -91,7 +91,7 @@ public class StoredXssDemo extends HttpServlet {
             request.getSession().setAttribute("secret", user.getSecret());
             response.sendRedirect("StoredXssDemo");
 
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             response.sendRedirect("StoredXssDemo?err=" + "Wrong user name or password - please try again");
             Logger.getLogger(StoredXssDemo.class.getName()).log(Level.SEVERE, null, ex);
         } finally {

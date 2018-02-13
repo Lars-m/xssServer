@@ -71,7 +71,7 @@ public class AddUser extends HttpServlet {
             request.getSession().setAttribute("user", user.getUsername());
             request.getSession().setAttribute("role", user.getRole());
             request.getSession().setAttribute("secret", user.getSecret());
-            response.sendRedirect("Login");
+            response.sendRedirect("");
         } catch (Exception ex) {
             Logger.getLogger(AddUser.class.getName()).log(Level.SEVERE, null, ex);
         }
